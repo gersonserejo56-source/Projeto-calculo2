@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rosa Rose Store — moda feminina, looks e novidades.">
+  <title>Rosa Rose Store | Moda feminina</title>
+  <style>
+    :root {
+      --rose: #b84e70;
+      --rose-dark: #87324d;
+      --pink: #f8e9ee;
+      --ink: #292326;
+      --muted: #766b70;
+      --cream: #fffaf8;
+      --line: #eadde1
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    .announcement {
+      background: var(--rose-dark);
+      color: #fff;
+      text-align: center;
+      padding: 9px 14px;
+      font-size: 12px;
+      letter-spacing: .08em
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fffdfc;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 17px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      letter-spacing: .02em;
+      font-weight: bold;
+      color: var(--rose-dark);
+      white-space: nowrap
+    }
+
+    .logo span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--muted);
+      margin-top: 3px
+    }
+
+    .links {
+      display: flex;
+      gap: 25px;
+      font-size: 13px
+    }
+
+    .links a:hover {
+      color: var(--rose)
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .icon-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 99px;
+      padding: 10px 13px;
+      color: var(--ink)
+    }
+
+    .hero {
+      background: var(--pink);
+      overflow: hidden
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 470px;
+      align-items: center;
+      padding: 38px 24px;
+      gap: 34px
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+      font-weight: bold
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.04;
+      font-weight: normal;
+      margin: 16px 0
+    }
+
+    .hero p {
+      max-width: 440px;
+      line-height: 1.7;
+      color: #64545b;
+      font-size: 15px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 3px;
+      padding: 14px 22px;
+      background: var(--rose-dark);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-top: 14px
+    }
+
+    .btn:hover {
+      background: var(--rose)
+    }
+
+    .btn-light {
+      background: transparent;
+      border: 1px solid var(--rose-dark);
+      color: var(--rose-dark);
+      margin-left: 8px
+    }
+
+    .hero-image {
+      height: 390px;
+      position: relative
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block
+    }
+
+    .image-note {
+      position: absolute;
+      left: -16px;
+      bottom: 20px;
+      background: #fff;
+      padding: 14px 18px;
+      box-shadow: 0 8px 28px #56303b18;
+      font-family: Georgia, serif;
+      font-size: 18px
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 68px 24px
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 26px
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 35px;
+      font-weight: normal;
+      margin: 8px 0
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 8px 0 0;
+      line-height: 1.6
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 25px
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      background: white;
+      padding: 9px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .filter.active,
+    .filter:hover {
+      background: var(--rose-dark);
+      color: white;
+      border-color: var(--rose-dark)
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px
+    }
+
+    .product {
+      min-width: 0
+    }
+
+    .product-photo {
+      position: relative;
+      background: #f5ecee;
+      aspect-ratio: 3/4;
+      overflow: hidden
+    }
+
+    .product-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s
+    }
+
+    .product:hover .product-photo img {
+      transform: scale(1.04)
+    }
+
+    .tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #fff;
+      padding: 7px 9px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .product-info {
+      padding: 13px 2px
+    }
+
+    .product-category {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted)
+    }
+
+    .product h3 {
+      font-size: 14px;
+      font-weight: normal;
+      margin: 7px 0
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 14px
+    }
+
+    .installments {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 5px
+    }
+
+    .buy {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 11px;
+      border: 1px solid var(--rose-dark);
+      background: white;
+      color: var(--rose-dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .buy:hover {
+      background: var(--rose-dark);
+      color: white
+    }
+
+    .about {
+      background: var(--cream)
+    }
+
+    .about-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 64px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .about-img {
+      height: 350px;
+      width: 100%;
+      object-fit: cover
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px
+    }
+
+    .feature {
+      border-top: 1px solid var(--line);
+      padding-top: 17px
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 7px
+    }
+
+    .feature span {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted)
+    }
+
+    .newsletter {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 68px
+    }
+
+    .newsletter-box {
+      background: var(--pink);
+      text-align: center;
+      padding: 44px 20px
+    }
+
+    .newsletter-box p {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 470px;
+      margin: 20px auto 0
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid var(--line);
+      padding: 13px;
+      background: #fff
+    }
+
+    .newsletter-form button {
+      margin: 0;
+      border-radius: 0
+    }
+
+    footer {
+      background: #2c2025;
+      color: #fff;
+      padding: 38px 24px 22px
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap
+    }
+
+    .footer-brand {
+      font-family: Georgia, serif;
+      font-size: 25px
+    }
+
+    .footer-inner p,
+    .footer-inner a {
+      color: #d8cbd0;
+      font-size: 12px;
+      line-height: 1.9
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 45px;
+      flex-wrap: wrap
+    }
+
+    .footer-links strong {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em
+    }
+
+    .copyright {
+      max-width: 1180px;
+      margin: 28px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid #59474f;
+      color: #b8aab0;
+      font-size: 10px
+    }
+
+    .cart-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--rose-dark);
+      color: #fff;
+      width: 17px;
+      height: 17px;
+      font-size: 10px;
+      margin-left: 3px
+    }
+
+    .notice {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #2c2025;
+      color: white;
+      padding: 13px 18px;
+      font-size: 13px;
+      box-shadow: 0 5px 25px #0002;
+      display: none;
+      z-index: 30;
+      max-width: 90%;
+      text-align: center
+    }
+
+    @media(max-width:850px) {
+      .links {
+        gap: 12px
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .hero-image {
+        height: 330px
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .about-inner {
+        gap: 25px
+      }
+
+      .features {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:600px) {
+      .nav {
+        padding: 13px 16px;
+        flex-wrap: wrap
+      }
+
+      .logo {
+        font-size: 22px
+      }
+
+      .links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        border-top: 1px solid var(--line);
+        padding-top: 12px
+      }
+
+      .nav-actions {
+        margin-left: auto
+      }
+
+      .icon-btn {
+        padding: 8px 10px
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 35px 18px 22px;
+        gap: 22px
+      }
+
+      .hero-image {
+        height: 310px
+      }
+
+      .image-note {
+        left: 10px
+      }
+
+      .section {
+        padding: 48px 18px
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column
+      }
+
+      h2 {
+        font-size: 30px
+      }
+
+      .products {
+        gap: 13px
+      }
+
+      .product h3 {
+        font-size: 13px
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr;
+        padding: 48px 18px
+      }
+
+      .about-img {
+        height: 280px
+      }
+
+      .newsletter {
+        padding: 0 18px 48px
+      }
+
+      .newsletter-box {
+        padding: 34px 15px
+      }
+
+      .footer-inner {
+        gap: 25px
+      }
+
+      .footer-links {
+        gap: 28px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement"> • ENCONTRE SEU PRÓXIMO LOOK</div>
+  <header>
+    <nav class="nav" aria-label="Menu principal">
+      <a class="logo" href="#inicio">ROSA ROSE<span>STORE • MODA FEMININA</span></a>
+      <div class="links"><a href="#inicio">Início</a><a href="#colecao">Coleção</a><a href="#sobre">Sobre a loja</a><a
+          href="#contato">Contato</a></div>
+      <div class="nav-actions"><button class="icon-btn" onclick="document.getElementById('colecao').scrollIntoView()">⌕
+          Buscar</button><button class="icon-btn"
+          onclick="mostrarAviso('Sua sacola de demonstração tem '+sacola+' item(ns).')">Sacola <span class="cart-count"
+            id="cart-count">0</span></button></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Seu estilo, sua história</div>
+          <h1>Vista-se de<br><em>possibilidades.</em></h1>
+          <p>Peças escolhidas para acompanhar você em todos os momentos. Descubra looks que combinam com sua
+            personalidade.</p><a class="btn" href="#colecao">Explorar coleção ↗</a><a class="btn btn-light"
+            href="#sobre">Conheça a loja</a>
+        </div>
+        <div class="hero-image"><img
+            src="images/capa.png"
+            alt="Imagem principal da coleção de moda feminina"
+            >
+          <div class="image-note">Feito para você.</div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="colecao">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Escolhas da estação</div>
+          <h2>Favoritos da coleção</h2>
+          <p>Explore algumas peças em destaque e encontre seu novo look.</p>
+        </div><a href="#contato" style="font-size:12px;color:var(--rose-dark)">Ver novidades ↗</a>
+      </div>
+      <div class="filters" aria-label="Filtrar produtos"><button class="filter active"
+          data-filter="todos">Todos</button><button class="filter" data-filter="vestidos">Vestidos</button><button
+          class="filter" data-filter="blusas">Blusas</button><button class="filter"
+          data-filter="conjuntos">Conjuntos</button><button class="filter" data-filter="acessorios">Acessórios</button>
+      </div>
+      <div class="products">
+        <article class="product" data-category="vestidos">
+          <div class="product-photo"><span class="tag">Destaque</span><img
+              src="images/vestido2.png"
+              alt="Vestido feminino em exposição"></div>
+          <div class="product-info">
+            <div class="product-category">Vestidos</div>
+            <h3>Vestido Elegance</h3>
+            
+        </article>
+        <article class="product" data-category="blusas">
+          <div class="product-photo"><img
+              src="images/blusazoe.png"
+              alt="Look feminino casual"></div>
+          <div class="product-info">
+            <div class="product-category">Blusas</div>
+            <h3>Blusa Zoe</h3>
+           
+        </article>
+        <article class="product" data-category="conjuntos">
+          <div class="product-photo"><span class="tag">Novo</span><img
+              src="images/conjunto.png"
+              alt="Duas mulheres com looks de moda"></div>
+          <div class="product-info">
+            <div class="product-category">Conjuntos</div>
+            <h3>Conjunto Moderno</h3>
+          
+        </article>
+        <article class="product" data-category="acessorios">
+          <div class="product-photo"><img
+              src="images/acessorios.png"
+              alt="Acessórios de moda"></div>
+          <div class="product-info">
+            <div class="product-category">Acessórios</div>
+            <h3>Colar com pingente de menina cravejado + brinco de ponto de luz</h3>
+        
+          </div>
+        </article>
+      </div>
+   
+    </section>
+    <section class="about" id="sobre">
+      <div class="about-inner"><img class="about-img"
+          src="images/logo.png"
+          alt="Inspiração de moda feminina">
+        <div class="about-copy">
+          <div class="eyebrow">Um pouco sobre nós</div>
+          <h2>Moda que acompanha você.</h2>
+          <p>A Rosa Rose Store é apresentada neste modelo como uma loja dedicada à moda feminina, com uma seleção
+            pensada para diferentes estilos e ocasiões. Personalize este texto com a história real da marca, seus
+            valores e o que torna a loja especial.</p>
+          <div class="features">
+            <div class="feature"><strong>✦ Estilo</strong><span>Inspirações para criar combinações com a sua
+                personalidade.</span></div>
+            <div class="feature"><strong>♡ Atendimento</strong><span>Espaço para explicar como a cliente pode tirar
+                dúvidas.</span></div>
+            <div class="feature"><strong>↗ Novidades</strong><span>Apresente lançamentos, coleções e ofertas da
+                loja.</span></div>
+          </div><a class="btn" href="https://tr.ee/i2-3OQpfuB">Fale com a loja</a>
+        </div>
+      </div>
+    </section>
+    <section class="newsletter">
+      <div class="newsletter-box">
+        <div class="eyebrow">Receba novidades</div>
+        <h2>Entre para a nossa lista</h2>
+        <p>Cadastre seu e-mail para receber lançamentos e novidades da coleção.</p>
+        <form class="newsletter-form"
+          onsubmit="event.preventDefault();mostrarAviso('Demonstração: conecte este formulário a um serviço de e-mail para receber cadastros.');">
+          <input type="email" required placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail"><button
+            class="btn" type="submit">Quero receber</button></form>
+      </div>
+    </section>
+  </main>
+  <footer id="contato">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">ROSA ROSE STORE</div>
+        <p>Moda feminina para expressar quem você é.<br>Personalize esta área com os dados oficiais da loja.</p>
+      </div>
+      <div class="footer-links">
+        <div><strong>Navegue</strong>
+          <p><a href="#inicio">Início</a><br><a href="#colecao">Coleção</a><br><a href="#sobre">Sobre a loja</a></p>
+        </div>
+        <div><strong>Atendimento</strong>
+          <p><a href="#"
+              onclick="mostrarAviso('Adicione aqui o link oficial do WhatsApp da loja.');return false">WhatsApp da
+              loja</a><br><a href="https://www.instagram.com/rosa_rose_store_oficial/" target="_blank"
+              rel="noopener">Instagram oficial</a><br><a href="mailto:contato@exemplo.com">E-mail de contato</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Rosa Rose Store — modelo demonstrativo para projeto acadêmico. Confirme autorização
+      para usar nome, logotipo, fotos e informações comerciais.</div>
+  </footer>
+  <div class="notice" id="notice" role="status"></div>
+  <script>
+    let sacola = 0;
+    function mostrarAviso(texto) { const n = document.getElementById('notice'); n.textContent = texto; n.style.display = 'block'; clearTimeout(window.noticeTimer); window.noticeTimer = setTimeout(() => n.style.display = 'none', 3500) }
+    function adicionar(produto) { sacola++; document.getElementById('cart-count').textContent = sacola; mostrarAviso(produto + ' adicionado à sacola demonstrativa. Para comprar, configure o WhatsApp ou o checkout real.') }
+    document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.filter').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const f = btn.dataset.filter; document.querySelectorAll('.product').forEach(p => p.style.display = (f === 'todos' || p.dataset.category === f) ? '' : 'none') }));
+  </script>
+</body>
+
+</html>
